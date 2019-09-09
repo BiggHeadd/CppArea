@@ -1,6 +1,9 @@
 #include <iostream>
 #include "Donor.h"
 #include <vector>
+#include <string>
+#include <cctype>
+#include <fstream>
 
 int main() {
 
@@ -18,42 +21,78 @@ int main() {
     //cin>>ch,跳过空格、换行符、制表符。cin.get(ch) 和 ch = cin.get()可以读取这些字符
 
     //p201 6
-    std::vector<Donor> foundation;
-    std::vector<Donor> Grands, Patrons;
-    int numbers;
-    std::cout<<"Enter the numbers of foundation: ";
-    std::cin>>numbers;
+//    std::vector<Donor> foundation;
+//    std::vector<Donor> Grands, Patrons;
+//    int numbers;
+//    std::cout<<"Enter the numbers of foundation: ";
+//    std::cin>>numbers;
+//
+//    for(int i=0; i<numbers; i++){
+//        Donor donor;
+//        donor.setDonor();
+//        foundation.push_back(donor);
+//        std::cout<<std::endl;
+//        if(donor.isVip()){
+//            Grands.push_back(donor);
+//        }else{
+//            Patrons.push_back(donor);
+//        }
+//    }
+//
+//    std::cout<<"Grands"<<std::endl;
+//    if(!Grands.empty()){
+//        for(Donor donor: Grands){
+//            donor.printDonor();
+//        }
+//    }else{
+//        std::cout<<"none"<<std::endl;
+//    }
+//
+//    std::cout<<"Patrons"<<std::endl;
+//    if(!Patrons.empty()){
+//        for(Donor donor: Patrons){
+//            donor.printDonor();
+//        }
+//    }else{
+//        std::cout<<"none"<<std::endl;
+//    }
 
-    for(int i=0; i<numbers; i++){
-        Donor donor;
-        donor.setDonor();
-        foundation.push_back(donor);
-        std::cout<<std::endl;
-        if(donor.isVip()){
-            Grands.push_back(donor);
-        }else{
-            Patrons.push_back(donor);
-        }
+    //p201 7
+//    std::string input;
+//    std::vector<std::string> inputs;
+//    int countVowels=0;
+//    int countConsonants=0;
+//    int others = 0;
+//    do{
+//        std::cin>>input;
+//        if(isalpha(input[0])){
+//            if(input[0]=='a' or input[0]=='e' or input[0]=='i' or input[0]=='o' or input[0]=='u' or
+//                    input[0]=='A' or input[0]=='E' or input[0]=='I' or input[0]=='O' or input[0]=='U'){
+//                countVowels++;
+//            }else{
+//                countConsonants++;
+//            }
+//        }else{
+//            others++;
+//        }
+//    }while(input!="q");
+//
+//    std::cout<<countVowels<<" words beginning with Vowels"<<std::endl;
+//    std::cout<<countConsonants-1<<" words beginning with Consonants"<<std::endl;
+//    std::cout<<others<<" others"<<std::endl;
+
+
+
+    std::fstream inFile("text.txt");
+    int count=0;
+    char temp;
+    inFile.open("./text.txt");
+    while(!inFile.eof()){
+        inFile >> temp;
+        std::cout<<temp<<std::endl;
+        count++;
     }
-
-    std::cout<<"Grands"<<std::endl;
-    if(!Grands.empty()){
-        for(Donor donor: Grands){
-            donor.printDonor();
-        }
-    }else{
-        std::cout<<"none"<<std::endl;
-    }
-
-    std::cout<<"Patrons"<<std::endl;
-    if(!Patrons.empty()){
-        for(Donor donor: Patrons){
-            donor.printDonor();
-        }
-    }else{
-        std::cout<<"none"<<std::endl;
-    }
-
-
+    std::cout<<count;
+    inFile.close();
     return 0;
 }
