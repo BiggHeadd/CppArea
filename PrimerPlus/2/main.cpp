@@ -83,16 +83,17 @@ int main() {
 
 
 
-    std::fstream inFile("text.txt");
-    int count=0;
-    char temp;
-    inFile.open("./text.txt");
-    while(!inFile.eof()){
-        inFile >> temp;
-        std::cout<<temp<<std::endl;
-        count++;
+    std::ifstream in;
+    // /home/bighead/CLionProjects/CppArea/PrimerPlus/2/text.txt
+    in.open("../text");
+    if(in.is_open()){
+        std::cout<<"open"<<std::endl;
     }
-    std::cout<<count;
-    inFile.close();
+    char c;
+    while(!in.eof()){
+        in>>c;
+        std::cout<<c<<std::endl;
+    }
+    in.close();
     return 0;
 }
