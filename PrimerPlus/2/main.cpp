@@ -4,6 +4,8 @@
 #include <string>
 #include <cctype>
 #include <fstream>
+#include <dirent.h>
+#include <unistd.h>
 
 int main() {
 
@@ -82,7 +84,7 @@ int main() {
 //    std::cout<<others<<" others"<<std::endl;
 
 
-
+    //p201 8
     std::ifstream in;
     // /home/bighead/CLionProjects/CppArea/PrimerPlus/2/text.txt
     in.open("../text");
@@ -90,10 +92,14 @@ int main() {
         std::cout<<"open"<<std::endl;
     }
     char c;
+    int count=0;
+    in>>c;
     while(!in.eof()){
+        count++;
         in>>c;
-        std::cout<<c<<std::endl;
     }
+    std::cout<<std::endl<<"一共有"<<count<<"个字符。";
     in.close();
+
     return 0;
 }
