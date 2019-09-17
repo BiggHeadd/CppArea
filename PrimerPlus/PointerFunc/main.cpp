@@ -37,7 +37,7 @@ void set_ft(free_throws& ft){
     std::cout<<"missed: ";
     std::cin>>ft.miss;
 
-    ft.percent = ft.made/((ft.made+ft.miss)*1.0);
+    ft.percent = float(ft.made)/(float(ft.made+ft.miss));
 }
 
 void print_ft(const free_throws& ft){
