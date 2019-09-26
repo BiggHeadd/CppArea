@@ -10,7 +10,7 @@ void set(stringy&, const char*);
 void show(const stringy&, int=1);
 void show(const char*, int=1);
 
-template <class T>T max(T *a){
+template <class T>T max5(T *a){
     T temp = a[0];
     for(int i=0; i<5; i++){
         if(temp < a[i]){
@@ -38,8 +38,8 @@ int main() {
     int a[5] = {1, 2, 3, 4, 5};
     double b[5] = {1.1, 2.2, 3.3, 4.4, 5.5};
 
-    int a_max = max(a);
-    double b_max = max(b);
+    int a_max = max5(a);
+    double b_max = max5(b);
     std::cout<<"int a_max: "<<a_max<<" double b_max"<<b_max;
 
     return 0;
