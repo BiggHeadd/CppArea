@@ -10,18 +10,38 @@ void set(stringy&, const char*);
 void show(const stringy&, int=1);
 void show(const char*, int=1);
 
+template <class T>T max(T *a){
+    T temp = a[0];
+    for(int i=0; i<5; i++){
+        if(temp < a[i]){
+            temp = a[i];
+        }
+    }
+    return temp;
+}
+
 int main() {
-    stringy beany;
-    char testing[] = "Reality isn't what it used to be.";
-    set(beany, testing);
+    // p299 4
+//    stringy beany;
+//    char testing[] = "Reality isn't what it used to be.";
+//    set(beany, testing);
+//
+//    show(beany);
+//    show(beany, 2);
+//
+//    testing[0] = 'D';
+//    testing[1] = 'u';
+//    show(testing);
+//    show(testing, 3);
 
-    show(beany);
-    show(beany, 2);
+    // 299 5
+    int a[5] = {1, 2, 3, 4, 5};
+    double b[5] = {1.1, 2.2, 3.3, 4.4, 5.5};
 
-    testing[0] = 'D';
-    testing[1] = 'u';
-    show(testing);
-    show(testing, 3);
+    int a_max = max(a);
+    double b_max = max(b);
+    std::cout<<"int a_max: "<<a_max<<" double b_max"<<b_max;
+
     return 0;
 }
 
