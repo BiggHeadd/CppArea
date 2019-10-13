@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "golf.h"
+#include "sales.h"
 
 struct chaff{
     char dross[20];
@@ -60,8 +61,21 @@ void p9_3(){
     delete[] pc;
 }
 
+void p9_4(){
+    SALES::Sales sales1;
+    SALES::Sales sales2;
+
+    double ar[3] = {32.1, 23.2, 65.3};
+    SALES::setSales(sales1, ar, 3);
+    SALES::setSales(sales2);
+
+    SALES::showSales(sales1);
+    SALES::showSales(sales2);
+}
+
 int main() {
 //    p9_1();
-    p9_3();
+//    p9_3();
+    p9_4();
     return 0;
 }
