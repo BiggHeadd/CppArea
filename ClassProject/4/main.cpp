@@ -1,30 +1,40 @@
 #include <iostream>
-#include <cstring>
 using namespace std;
-class CA
-{public:
-    CA(int b,char* cstr)
-    {a=b;
-        str=new char[b];
-        strcpy(str,cstr);
-        cout << "构造成功"<<endl;}
 
-    void Show()
-    {cout<<"构造的字符串为："<<str<<endl;
-        cout<<"构造的字符串地址为："<<(int*)str<<endl;
-    }
-    CA(CA &B){
-        a = B.a;
-        char* tmp = new char;
-        strcpy(tmp, B.str);
-    }
-    ~CA(){delete str;}
+class A {
+public:
+  void setx(int a) { x = a; }
+  int getx() { return x; }
+
 private:
-    int a;
-    char *str;};
-int main()
-{CA A(10,"Hello!");
-    A.Show();
-    CA B=A;
-    B.Show();
-    return 0; }
+  int x;
+};
+
+class B : public A {
+public:
+  void sety(int a) { y = a; }
+  int gety() { return y; }
+
+private:
+  int y;
+};
+
+class C : public A {
+public:
+  void setz(int a) { z = a; }
+  int getz() { return z; }
+
+private:
+  int z;
+};
+
+class D : public B, public C {
+  //......
+};
+
+int main() {
+  D test;
+  test.B::setx(10);
+  cout << test.B::getx() << endl;
+  return 0;
+}
